@@ -1,0 +1,40 @@
+ {% extends 'base-with-sidebar.html' %}
+ {% load i18n %}
+{% block left %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">头像设置</h3>
+    </div>
+    <form class="form-horizontal panel-body col-sm-offset-2" method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label class="" for="avatar">更新头像(置空将不会修改你的当前头像)</label>
+            <input type="file" name="file" id="avatar">
+            <p class="help-block text-muted">图片最大512KB，仅支持png, jpg和gif格式</p>
+        </div>
+        使用默认头像
+        <div class="checkbox">
+            <label>
+            	{% if request.user.profile.use_gravatar %}
+                <input type="checkbox" name="gravatar" value="true" checked> {{use_gravatar}}
+                {% else %}
+                <input type="checkbox" name="gravatar" value="true"> {{use_gravatar}}
+                {% endif %}
+            </label>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-10">
+            <hr/>
+                <button class="btn btn-info">
+                    更新
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
+{% block right %}
+{% include 'user-panel.html' %}
+{% include 'node.html' %}
+{% include 'links.html' %}
+{% endblock %}

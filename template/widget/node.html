@@ -1,0 +1,13 @@
+{% load i18n %}
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+               <cert class="glyphicon glyphicon-tasks" style="margin-right:6px"></cert> 话题分类
+        </h3>
+    </div>
+    <div class="panel-body">
+        {% for node in conf.nodes %}
+        <span class="label label-default list-meta-node"><a href="{% url 'node_view' node.id %}" style="margin-top:10px;">{{node.title}}</a></span>
+        {% endfor %}
+    </div>
+</div>

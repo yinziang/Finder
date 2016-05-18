@@ -1,0 +1,37 @@
+{% extends 'base-with-sidebar.html' %}
+{% load humanize %}
+{% block left %}
+<div class="panel panel-info">
+    <div class="panel-body row">
+        <div class="col-xs-2">
+            <img class="avatar-large" src="{{user.profile.avatar.large}}" title="{{user.profile.username}}"/>
+        </div>
+        <div class="col-xs-10">
+            {% if request.user.username != user.username %}
+            <button class="btn btn-default pull-right"><a href="{% url 'blog_home' user.profile.username %}">博客</a></button>
+            <button class="pull-right btn btn-success" id="mention"><a href="{% url 'develop' %}">关注 <span class="glyphicon glyphicon-plus plus-icon"></span></a></button>
+            {% endif %}
+            <p class="list-post-title"><strong>{{user.profile.username}}</strong></p>
+            <p class="list-meta">用户ID: {{user.id}} &nbsp;&nbsp; 注册时间: {{user.date_joined|naturaltime}}</p>
+            {% if user.profile.institute %}
+            <p class="list-meta">学院: <a target="_blank">{{user.profile.institute}}</a></p>
+            {% endif %}
+            {% if user.profile.qnumber %}
+            <p class="list-meta">QQ号码: <a target="_blank">{{user.profile.qnumber}}</a></p>
+            {% endif %}
+            {% if user.profile.weibo %}
+            <p class="list-meta">微博地址: <a target="_blank" href="{{user.profile.weibo}}">{{user.profile.weibo}}</a></p>
+            {% endif %}
+            {% if user.profile.about %}
+            <p class="list-meta">关于我: <a target="_blank">{{user.profile.about}}</a></p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% include 'topic-list.html' %}
+{% endblock %}
+{% block right %}
+{% include 'user-panel.html' %}
+{% include 'node.html' %}
+{% include 'links.html' %}
+{% endblock %}

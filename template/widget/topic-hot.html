@@ -1,0 +1,15 @@
+{% load i18n %}
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+                <cert class="glyphicon glyphicon-link"></cert><a style="margin-left:4px">热门话题</a>
+        </h3>
+    </div>
+    <ul class="list-group">
+        {% for  t in hot_topic%}
+        <li class="list-group-item">
+            <a href="{% url 'topic_view' t.id %}" class="" target="_blank">{{ forloop.counter }}. {{ t.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

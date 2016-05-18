@@ -1,0 +1,84 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>博客首页</title>
+        <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}"/>
+        <link rel="stylesheet" href="{% static 'pure/pure-min.css' %}">
+        <link rel="stylesheet" href="{% static 'pure/grids-responsive-min.css' %}">
+        <link rel="stylesheet" href="{% static 'pure/blog.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/finder.css' %}">
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        {% block extra_head %}
+        {% endblock %}
+    </head>
+    <body>
+        <div id="layout" class="pure-g">
+            <div class="sidebar pure-u-1 pure-u-md-1-4">
+                <div class="header">
+                    {% if request.user.is_authenticated %}
+                    <h2 class="brand-title">{{ request.user.username }}</h2>
+                    <h3 class="brand-tagline">Finder博客社区</h3>
+                    {% else %}
+                    <h2 class="brand-title">所有博客</h2>
+                    <h3 class="brand-tagline">Keep Finding</h3>
+                    {% endif %}
+                    <nav class="nav">
+                        <ul class="nav-list">
+                            <li class="nav-item">
+                                <a class="pure-button" href="{% url 'index' %}">首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="pure-button" href="{% url 'develop' %}">博客分类</a>
+                            </li>   
+                            
+                            {% if request.user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="pure-button" href="{% url 'user_info' request.user.id %}">关于我</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                    {% if request.user.is_authenticated %}
+                    <center>
+                    <nav class="nav" id="nav" style="margin-top:200px">
+                        <ul class="nav-list">
+                            <li class="nav-item">
+                                <a class="pure-button" href="{% url 'article_publish' %}" >发表</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    </center>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div class="content pure-u-1 pure-u-md-3-4">
+                <div>
+                    {% block content %}
+                    {% endblock %}
+                    
+                    <div class="footer">
+                        <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                            <ul>
+                                <li><a href="">关于我</a></li>
+                                <li><a href="http://www.baidu.com">知乎</a></li>
+                                <li><a href="http://www.baidu.com">微博</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            
+        </div>
+        {% block scripts %}
+        {% endblock %}
+    </body>
+</html>

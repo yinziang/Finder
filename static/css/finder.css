@@ -1,0 +1,129 @@
+#id_title{
+    width:100%;
+}
+
+#id_tags{
+    display:inline;
+    margin-right:10px;
+    width:89%;
+}
+
+#title-color{
+    font-size:30px;
+    color:#129FEA;
+}
+#post-meta{
+    font-size:15px;
+}
+
+.post-header{
+    margin-top:30px;
+}
+.post-title{
+    font-weight: bold;
+}
+
+#readmore{
+    font-size:15px;
+}
+
+#nav a{
+    font-size:15px;
+    margin-right:20px;
+    background-color: #123;
+}
+
+/*关注按钮*/
+#mention{
+    font-size:13px;
+    margin-right:5px;
+}
+
+#mention a{
+    color:#fff;
+}
+
+.plus-icon{
+    font-size:1px;
+}
+
+.nodedescription{
+    color: #777;
+    font-size:14px;
+    display: inline;
+    margin-left:10px;
+}
+
+#node-list-line{
+    display:inline-block;
+    margin-top:10px;
+    margin-left:10px;
+    width:150px;
+}
+
+.node-icon-span{
+    background: rgb(64, 210, 177);
+    color:#000;
+    display: inline-block;
+    margin-left:10px;
+    border-radius:50%;
+    width:47px;
+    height:47px;
+    font-size:20px;
+    font-weight: bold;
+    text-align:center;
+    line-height:20px;
+}
+.node-icon-span span{
+    display: inline-block;
+    margin-top:13px;
+}
+
+.top{
+    background-color:red;
+    border-radius:15%;
+    font-size:15px;
+    display:inline-block;
+    margin-left:5px;
+}   
+
+.hot-topic{
+    font-size:14px;
+    color:#000;
+}
+
+.edit{
+    width:50px;
+    background-color: #999;
+}
+
+.post-list{
+    display:inline-block;
+    margin-top:5px;
+    width:500px;
+    float:left;
+}
+
+.post-list a:hover{ 
+    text-decoration:none;
+    font-size:50px;
+    }
+
+.post-description{
+    font-size:18px;
+}
+
+/*网站FAQ页面*/
+.table tbody tr td{
+    font-size:20px;
+    border:#111;
+}
+
+.table-head th{
+    text-align:center;
+    font-size:15px;
+}
+
+.table-body tr{
+    text-align:center;
+}

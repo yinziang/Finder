@@ -1,0 +1,46 @@
+{% extends 'base-with-sidebar.html' %}
+{% load humanize %}
+{% load pagination_tags %}
+
+{% block left %}
+
+<div class="panel panel-default" style="line-height:12px">
+	<div class="panel-heading title-breadcrumb">
+        话题分类
+	</div>
+	{% if not node_list %}
+	<div class="panel-body">
+		<div class="alert alert-info">
+			话题分类列表为空
+		</div>
+	</div>
+	{% endif %}
+	<ul class="list-group">
+		{% autopaginate node_list 12 %}   
+		{% for t in node_list %}
+		<div class="list-group-item list-topic-item" id="node-{{t.id}}">
+			<div class="row ">
+				<a href="{% url 'node_view' t.id %}" class="col-md-1 col-xs-2 col-sm-2 node-icon-span" style="background-color:{{i}}"><span>{{ t.id }}</span></a>
+				<div class="col-xs-9 col-md-10 col-sm-9">
+					<h3 class="list-post-title" id="node-list-line"><a href="{% url 'node_view' t.id %}">{{t.title}}</a></h3>
+                    <a class="nodedescription">{{t.description}}</a>
+				</div>
+				<div class="col-xs-1 col-sm-1">
+					<span class="badge pull-right list-reply-count hidden-xs" style="margin-top:17px">{{ t.count }}</span>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</ul>
+	<div class="panel-footer">
+		{% paginate %}
+	</div>
+</div>
+
+{% endblock %}
+
+{% block right %}
+{% include 'user-panel.html' %}
+{% include 'links.html' %}
+{% include 'stat.html' %}
+{% endblock %}

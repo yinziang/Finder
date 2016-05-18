@@ -1,0 +1,28 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<div class="posts">
+    {% for post in object_list %}
+    <section class="post">
+        <header class="post-header">
+            <h2 class="post-title" id="title-color"><a href="{% url 'blog_detail' id=post.id %}">{{ post.title }}</a></h2>
+            <p class="post-meta" id="post-meta">
+                发表时间:<a class="post-author" href="#">{{ post.created|date:"Y年m月d日" }}</a>
+                作者:<a class="post-author" href="#">{{ post.author }}</a>
+                <a class="post-category post-category-js" href="#">{{post.tags}}</a>
+            </p>
+        </header>
+        
+        <div class="post-description">
+            <p>
+                {% autoescape off %}
+                {{ post.content_html | truncatewords_html:4 }}
+                {% endautoescape %}
+            </p>
+        </div>
+        <a class="pure-button" id="readmore" href="{% url 'blog_detail' id=post.id %}">Read More>>></a>
+        
+    </section>
+    {% endfor %}
+</div>
+{% endblock %}

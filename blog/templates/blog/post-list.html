@@ -1,0 +1,36 @@
+{% extends "blog/base.html" %}
+
+{% block extra_head %}
+
+<script language="javascript">
+    function del(){
+        if(!confirm("确定要删除该篇博文吗？")){
+            window.event.returnValue = false;
+        }
+    }
+</script>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="panel panel-default" style="line-height:12px">
+    <ul class="list-group">  
+        <center><h3>博客列表</h3></center>
+		{% for p in post_list %}
+		<div class="list-group-item list-topic-item" id="node-{{t.id}}">
+			<div class="row ">
+				<a class="col-md-1 col-xs-2 col-sm-2 node-icon-span" style=""><span>{{ forloop.counter }}</span></a>
+				<div class="col-xs-9 col-md-10 col-sm-9">
+					<h4><a class="post-list" href="{% url 'blog_detail' p.id %}">{{p.title}}</a></h4>
+                    <a href="{% url 'blog_del' p.id %}" ><button class="btn btn-default pull-right" style="margin-left:5px" onclick="del()">删除</button></a>
+                    <a href="{% url 'blog_edit' p.id %}"><button class="btn btn-default pull-right">编辑</button></a>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+        
+	</ul>
+</div>
+
+{% endblock %}

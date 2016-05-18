@@ -1,0 +1,19 @@
+{% load i18n%}
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+                <cert class="glyphicon glyphicon-sort" style="margin-right:6px"></cert>网站详情
+        </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+            用户数量:{{conf.user_count}}
+        </li>
+        <li class="list-group-item">
+            话题数量:{{conf.topic_count}}
+        </li>
+        <li class="list-group-item">
+            回复数量:{{conf.post_count}}
+        </li>
+    </ul>
+</div>

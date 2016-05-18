@@ -1,0 +1,15 @@
+{% load i18n %}
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+                <cert class="glyphicon glyphicon-link" style="margin-right:6px"></cert>链接
+        </h3>
+    </div>
+    <ul class="list-group">
+        {% for key,val in conf.links.items %}
+        <li class="list-group-item">
+            <a href="{{val}}" target="_blank">{{key}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

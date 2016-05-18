@@ -1,0 +1,55 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-26 22:09+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: views.py:17
+msgid "home"
+msgstr ""
+
+#: views.py:22
+msgid "user management"
+msgstr ""
+
+#: views.py:65 views.py:141 views.py:238
+msgid "edit"
+msgstr ""
+
+#: views.py:77
+msgid "edit user"
+msgstr ""
+
+#: views.py:108
+msgid "node management"
+msgstr ""
+
+#: views.py:152
+msgid "edit node"
+msgstr ""
+
+#: views.py:167
+msgid "create node"
+msgstr ""
+
+#: views.py:182
+msgid "topic management"
+msgstr ""
+
+#: views.py:191
+msgid "edit topic"
+msgstr ""

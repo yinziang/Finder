@@ -1,0 +1,64 @@
+{% extends 'base-with-sidebar.html' %}
+{% load i18n %}
+{% block left %}
+<div class="panel panel-default">
+    
+    <div class="panel-heading">
+        <h3 class="panel-title">用户设置</h3>
+    </div>
+    
+    <form class="form-horizontal panel-body" method="post" action="">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="weibo">博客地址</label>
+            <div class="col-sm-10">
+                <input class="form-control" id="weibo" name="weibo" type="url" value="{% if request.user.profile.weibo %}{{ request.user.profile.weibo }}{% endif %}">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="email">Email</label>
+            <div class="col-sm-10">
+                <input class="form-control" id="email" name="email" type="email" value="{{request.user.email}}">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="institute">学院</label>
+            <div class="col-sm-10">
+                <input class="form-control" id="institute" name="institute" type="text" value="{% if request.user.profile.institute %}{{ request.user.profile.institute}}{% endif %}">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="qq">QQ</label>
+            <div class="col-sm-10">
+                <input class="form-control" id="qq" name="qnumber" type="text" value="{% if request.user.profile.qnumber %}{{ request.user.profile.qnumber }}{% endif %}">
+            </div>
+        </div>
+         <div class="form-group">
+            <label class="col-sm-2 control-label" for="about">关于自己</label>
+            <div class="col-sm-10">
+                <input class="form-control" id="about" name="about" type="text" value="{% if request.user.profile.about %}{{ request.user.profile.about }}{% endif %}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button class="btn btn-default" type="submit">
+                    更新
+                </button>
+                <a class="btn btn-link" href="{% url 'change_password' %}">修改密码</a>
+                <a class="btn btn-link" href="{% url 'user_avatar' %}">头像设置</a>
+            </div>
+        </div>
+        
+    </form>
+</div>
+{% endblock %}
+{% block right %}
+{% include 'user-panel.html' %}
+{% include 'node.html' %}
+{% include 'links.html' %}
+{% endblock %}

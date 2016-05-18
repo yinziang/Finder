@@ -1,0 +1,27 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<div class="posts">
+    <section class="post">
+        {% for post in post %}
+        <header class="post-header">
+            <h2 class="post-title" style="font-size:30px">{{ post.title }}</h2>
+            <p class="post-meta" href="#">
+                发表时间:<a class="post-author" href="" style="margin-right:5px">{{ post.created|date:"Y年m月d日" }}</a>
+                作者:<a class="post-author" href="" style="margin-right:5px">{{ post.author }}</a>
+                阅读次数:<a class="post-author" href="" style="margin-right:5px">{{ post.views }}</a>
+                <a class="post-category post-category-js" href="#">{{ post.tags }}</a>
+            </p>
+        </header>
+        <div class="post-description">
+            <p>
+                {% autoescape off %}
+                {{ post.content_html }}
+                {% endautoescape %}
+            </p>
+        </div>
+        {% endfor %}
+    </section>
+</div>
+{% endblock %}
+

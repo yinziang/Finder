@@ -1,0 +1,59 @@
+{% load i18n %}
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title"> {% if request.user.is_authenticated %}
+        <cert class="glyphicon glyphicon-home" style="margin-right:6px"></cert>{{request.user.profile.username}}
+        {% else %}
+        什么是Finder
+        {% endif %} </h3>
+    </div>
+    <div class="panel-body">
+        {% if request.user.is_authenticated %}
+        <div class="row">
+            <a class="col-xs-2"><img title="{{request.user.profile.username}}" class="avatar-middle" src="{{request.user.profile.avatar.middle}}"></a>
+            <div class="padtop">
+                <div class="col-xs-2">
+                    <a style="margin-left:5px" href="{% url 'user_info' request.user.id %}" class="btn btn-block"> <span class="glyphicon glyphicon-home"></span> 主页 </a>
+                </div>
+                <div class="col-xs-2">
+                    <a style="margin-left:8px" href="{% url 'blog_home' request.user.username %}" class="btn btn-block"> <span class="glyphicon glyphicon-leaf"></span> 博客 </a>
+                </div>
+                <div class="col-xs-2">
+                    <a style="margin-left:12px" href="{% url 'user_setting' %}" class="btn btn-block"> <span class="glyphicon glyphicon-cog"></span> 设置 </a>
+                </div>
+                <div class="col-xs-2">
+                    <a style="margin-left:15px" href="{% url 'signout' %}" class="btn btn-block"> <span class="glyphicon glyphicon-log-out"></span> 注销 </a>
+                </div>
+            </div>
+
+        </div>
+        {% else %}
+        <p class="text-center">
+            Finder是一个为大学生提供的高质量信息交流平台
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <a href="{% url 'signin' %}" class="btn btn-block btn-info">登录</a>
+            </div>
+            <div class="col-md-6">
+                <a href="{% url 'reg' %}" class="btn btn-block btn-default">注册</a>
+            </div>
+        </div>
+        {% comment %}
+        <hr>
+        <div>
+            <p>其他登陆方式：
+            <a href="https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101029751&redirect_uri=http%3A//python.cc/user/oauth/qq/&scope=get_user_info,add_t&state=pythoncclogin">
+            <img src="/static/image/Connect_logo_7.png">
+            </a>
+            </p>
+        </div>
+        {% endcomment %}
+        {% endif %}
+    </div>
+    {% if request.user.profile.unread_mention %}
+    <div class="panel-footer">
+        <span class="notification"><a href="{% url 'mention' %}">{{request.user.profile.unread_mention.count}}新消息</a></span>
+    </div>
+    {% endif %}
+</div>

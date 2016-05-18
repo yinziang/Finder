@@ -1,0 +1,73 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Finder-发现更好的自己</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- Add your keywords and description here for SEO. -->
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}"/>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+    <!-- Uncomment this if you need apple touch icon. -->
+    <!--
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png">
+    -->
+
+    <!-- Don't delete this. It's needed for development workflow. -->
+    <link rel="stylesheet" href="{% static 'stylesheets/bundle.min.css' %}">
+</head>
+
+<body>
+<div class="loading-overlay">
+    <img src="{% static 'images/loading.svg' %}">
+</div>
+
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide slide-1">
+            <div class="item-image animated" data-ani-name="slideInLeft" data-ani-duration="1s" data-ani-delay="0s"></div>
+            <p class="item-text animated" data-ani-name="slideInRight" data-ani-duration="1s" data-ani-delay="0.3s"><center><h3><a class="index-title">Finder是一个崇尚自由平等的高质量信息交流社区</a></h3></center></p>
+        </div>
+        <div class="swiper-slide slide-2">
+            <div class="item-image animated" data-ani-name="bounceInDown" data-ani-duration="1s" data-ani-delay="0s"></div>
+            <p class="item-text animated" data-ani-name="bounceInUp" data-ani-duration="1s" data-ani-delay="0.3s"><center><h3><a class="index-title">这里汇聚了一大批追求美好、热爱生活的人</a></h3></center></p>
+        </div>
+        <div class="swiper-slide slide-4">
+            <div class="item-image animated" data-ani-name="slideInRight" data-ani-duration="1s" data-ani-delay="0s"></div>
+            <p class="item-text animated" data-ani-name="bounceInUp" data-ani-duration="1s" data-ani-delay="0.3s"><center><h3><a class="index-title">我们致力于营造一个温馨和谐的校园社区氛围</a></h3></center></p>
+        </div>
+        <div class="swiper-slide slide-3">
+            <div class="item-image animated" data-ani-name="flipInX" data-ani-duration="1s" data-ani-delay="0s"></div>
+            <p class="item-text animated" data-ani-name="flipInY" data-ani-duration="1s" data-ani-delay="0.3s"><center><h3><a class="index-title">而这些 需要大家的共同努力</a></h3></center></p>
+        </div>
+        <div class="swiper-slide slide-1">
+            <div class="item-image animated" data-ani-name="slideInLeft" data-ani-duration="1s" data-ani-delay="0s"></div>
+            <p class="item-text animated" data-ani-name="slideInRight" data-ani-duration="1s" data-ani-delay="0.3s"><center><h3><a class="index-title">Finder—发现更好的自己<br><a href="{% url 'index' %}"><button class="btn-start" style="background-color:transparent; border:none">进入社区</button></a></a></h3></center></p>
+        </div>
+        
+    </div>
+</div>
+
+<button class="up-arrow">
+    <i class="icon-angle-double-up"></i>
+</button>
+
+<button class="btn-music">
+    <i class="icon-note"></i>
+</button>
+
+<audio loop>
+    <source src="{% static 'audios/background.mp3' %}" type="audio/mpeg">
+</audio>
+
+<!-- Don't delete this. It's needed for development workflow. -->
+<script src="{% static 'javascripts/bundle.min.js' %}"></script>
+
+</body>
+
+</html>
